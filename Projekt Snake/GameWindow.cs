@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace Projekt_Snake
 {
-    public partial class Form1 : Form
+    public partial class GameWindow : Form
     {
-        public Form1()
+        public GameWindow()
         {
             InitializeComponent();
+        }
+
+        private void buttonBackToMenu_Click(object sender, EventArgs e)
+        {
+            formMenu menu = new formMenu();
+            this.Close();
+            menu.Show();
         }
     }
 }
