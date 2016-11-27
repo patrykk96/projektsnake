@@ -13,6 +13,8 @@ namespace Projekt_Snake
     public partial class formSnakeGame : Form
     {
         List<Panel> listPanel = new List<Panel>();
+        List<Circle> snake = new List<Circle>();
+        Circle feed = new Circle();
         
         public formSnakeGame()
         {
@@ -31,11 +33,37 @@ namespace Projekt_Snake
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            //po kliknięciu przycisku start zmienia panel z menu na pole gry ichowa panel menu
+            //po kliknięciu przycisku start zmienia panel z menu na pole gry i chowa panel menu
             listPanel[1].BringToFront();
             listPanel[0].Visible = false;
+
+            BeginGame();
         }
 
+        private void BeginGame()
+        {
+            Circle snakeHead = new Circle(5,5); //głowa naszego węża, wartosci do przetestowania
+            snake.Add(snakeHead);
+            new Settings(); //ustawia domyślne ustawienia gry na rozpoczęciu
+            FeedSpawn(); //metoda umożliwiająca pojawienie się pożywienie w losowych punktach planszy na rozpoczęciu gry
+            labelScore.Text = Settings.score.ToString(); //ustawia punktację na domyślną, czyli zero
+            
+            
+
+        }
+
+        private void FeedSpawn()
+        {
+            //metoda określa pole w którym może pojawić sie jedzenie i generuje losowe w którym ono sie pojawi
+            //jeśli metoda zostanie wywołana
+            int maxPositionX = pictureBoxGameField.Size.Width;
+            int maxPositionY = pictureBoxGameField.Size.Height;
+            feed = new Circle();
+            Random rand = new Random();
+            feed.x = rand.Next(0, maxPositionX);
+            feed.y = rand.Next(0, maxPositionY);
+
+        }
         private void buttonBackToMenu_Click(object sender, EventArgs e)
         {
             //po kliknięciu przycisku wystawia panel menu do przodu

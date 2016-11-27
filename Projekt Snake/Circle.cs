@@ -8,14 +8,22 @@ namespace Projekt_Snake
 {
     class Circle
     {
-        //Każda jednostka jedzenia bedzie kołem, a wąż będzie się składał z listy kół
-        public int x;
+        /// <summary>
+        /// Wąż, którym będzie sterował gracz i pożywienie będą okręgami.
+        /// </summary>
+        public int x; 
         public int y;
 
         public Circle()
         {
             x = 0;
             y = 0;
+        }
+
+        public Circle(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
         }
     }
 }

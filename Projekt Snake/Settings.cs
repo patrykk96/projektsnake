@@ -18,8 +18,8 @@ namespace Projekt_Snake
         public Settings()
         {
             //ustawienia domyślne wartości do zmienienia kiedy będzie można sprawdzić je na polu gry
-            width = 0;
-            height = 0;
+            width = 16;
+            height = 16;
             score = 0;
             speed = 0;
             gameOver = false;

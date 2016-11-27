@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.panelGame = new System.Windows.Forms.Panel();
-            this.buttonBackToMenu = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonCredits = new System.Windows.Forms.Button();
             this.buttonHowToPlay = new System.Windows.Forms.Button();
             this.buttonStart = new System.Windows.Forms.Button();
-            this.pictureBoxGameField = new System.Windows.Forms.PictureBox();
+            this.panelGame = new System.Windows.Forms.Panel();
+            this.labelScore = new System.Windows.Forms.Label();
             this.labelScoreString = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBoxGameField = new System.Windows.Forms.PictureBox();
+            this.buttonBackToMenu = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGameField)).BeginInit();
@@ -53,27 +53,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(870, 700);
             this.panelMenu.TabIndex = 0;
-            // 
-            // panelGame
-            // 
-            this.panelGame.Controls.Add(this.label1);
-            this.panelGame.Controls.Add(this.labelScoreString);
-            this.panelGame.Controls.Add(this.pictureBoxGameField);
-            this.panelGame.Controls.Add(this.buttonBackToMenu);
-            this.panelGame.Location = new System.Drawing.Point(68, 12);
-            this.panelGame.Name = "panelGame";
-            this.panelGame.Size = new System.Drawing.Size(870, 700);
-            this.panelGame.TabIndex = 4;
-            // 
-            // buttonBackToMenu
-            // 
-            this.buttonBackToMenu.Location = new System.Drawing.Point(728, 662);
-            this.buttonBackToMenu.Name = "buttonBackToMenu";
-            this.buttonBackToMenu.Size = new System.Drawing.Size(142, 35);
-            this.buttonBackToMenu.TabIndex = 0;
-            this.buttonBackToMenu.Text = "Powrót do menu";
-            this.buttonBackToMenu.UseVisualStyleBackColor = true;
-            this.buttonBackToMenu.Click += new System.EventHandler(this.buttonBackToMenu_Click);
             // 
             // buttonExit
             // 
@@ -115,14 +94,26 @@
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
-            // pictureBoxGameField
+            // panelGame
             // 
-            this.pictureBoxGameField.BackColor = System.Drawing.SystemColors.ControlText;
-            this.pictureBoxGameField.Location = new System.Drawing.Point(18, 15);
-            this.pictureBoxGameField.Name = "pictureBoxGameField";
-            this.pictureBoxGameField.Size = new System.Drawing.Size(631, 661);
-            this.pictureBoxGameField.TabIndex = 1;
-            this.pictureBoxGameField.TabStop = false;
+            this.panelGame.Controls.Add(this.labelScore);
+            this.panelGame.Controls.Add(this.labelScoreString);
+            this.panelGame.Controls.Add(this.pictureBoxGameField);
+            this.panelGame.Controls.Add(this.buttonBackToMenu);
+            this.panelGame.Location = new System.Drawing.Point(68, 12);
+            this.panelGame.Name = "panelGame";
+            this.panelGame.Size = new System.Drawing.Size(870, 700);
+            this.panelGame.TabIndex = 4;
+            // 
+            // labelScore
+            // 
+            this.labelScore.AutoSize = true;
+            this.labelScore.Font = new System.Drawing.Font("BankGothic Lt BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelScore.Location = new System.Drawing.Point(714, 45);
+            this.labelScore.Name = "labelScore";
+            this.labelScore.Size = new System.Drawing.Size(85, 21);
+            this.labelScore.TabIndex = 3;
+            this.labelScore.Text = "label1";
             // 
             // labelScoreString
             // 
@@ -134,15 +125,24 @@
             this.labelScoreString.TabIndex = 2;
             this.labelScoreString.Text = "Punkty";
             // 
-            // label1
+            // pictureBoxGameField
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("BankGothic Lt BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(714, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 21);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
+            this.pictureBoxGameField.BackColor = System.Drawing.SystemColors.ControlText;
+            this.pictureBoxGameField.Location = new System.Drawing.Point(18, 15);
+            this.pictureBoxGameField.Name = "pictureBoxGameField";
+            this.pictureBoxGameField.Size = new System.Drawing.Size(631, 661);
+            this.pictureBoxGameField.TabIndex = 1;
+            this.pictureBoxGameField.TabStop = false;
+            // 
+            // buttonBackToMenu
+            // 
+            this.buttonBackToMenu.Location = new System.Drawing.Point(728, 662);
+            this.buttonBackToMenu.Name = "buttonBackToMenu";
+            this.buttonBackToMenu.Size = new System.Drawing.Size(142, 35);
+            this.buttonBackToMenu.TabIndex = 0;
+            this.buttonBackToMenu.Text = "Powrót do menu";
+            this.buttonBackToMenu.UseVisualStyleBackColor = true;
+            this.buttonBackToMenu.Click += new System.EventHandler(this.buttonBackToMenu_Click);
             // 
             // formSnakeGame
             // 
@@ -173,7 +173,7 @@
         private System.Windows.Forms.Button buttonCredits;
         private System.Windows.Forms.Button buttonHowToPlay;
         private System.Windows.Forms.Button buttonStart;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelScore;
         private System.Windows.Forms.Label labelScoreString;
         private System.Windows.Forms.PictureBox pictureBoxGameField;
     }
