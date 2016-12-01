@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace Projekt_Snake
 {
+    public enum Direction
+    {
+        up,
+        down,
+        left,
+        right
+    };
+
+
     class Settings
     {
         //ustawienia pola gry, predkosc, polozenie , zakonczenie gry, punktacja
@@ -14,6 +23,8 @@ namespace Projekt_Snake
         public static int score;
         public static int speed;
         public static bool gameOver;
+        public static Direction snakeDirection;
+        
 
         public Settings()
         {
@@ -21,8 +32,9 @@ namespace Projekt_Snake
             width = 16;
             height = 16;
             score = 0;
-            speed = 0;
+            speed = 10;
             gameOver = false;
+            snakeDirection = Direction.right;
 
         }
 
