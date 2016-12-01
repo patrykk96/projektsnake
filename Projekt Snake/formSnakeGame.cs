@@ -105,5 +105,29 @@ namespace Projekt_Snake
             //kliknięcie przycisku zamyka program
             this.Close();
         }
+
+        private void pictureBoxGameField_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics pole = e.Graphics;
+
+            if (Settings.gameOver == true)
+            {
+                Brush snakeColor;
+                Brush feedColor;
+
+                for (int i = 0; i < snake.Count; i++)
+                {
+                    if (i == 0) snakeColor = Brushes.Aqua; // inny kolor głowy posłuży do sprawdzenia czy wszystko działa, do zmienienia pozniej
+                    else snakeColor = Brushes.White;
+
+                    feedColor = Brushes.Green;
+                    pole.FillEllipse(snakeColor, new Rectangle(snake[i].x, snake[i].y, Settings.width,Settings.height));
+                    pole.FillEllipse(feedColor, new Rectangle(feed.x, feed.y, Settings.width, Settings.height));
+
+                }
+
+                
+            }
+        }
     }
 }

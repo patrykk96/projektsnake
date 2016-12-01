@@ -133,6 +133,7 @@
             this.pictureBoxGameField.Size = new System.Drawing.Size(631, 661);
             this.pictureBoxGameField.TabIndex = 1;
             this.pictureBoxGameField.TabStop = false;
+            this.pictureBoxGameField.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxGameField_Paint);
             // 
             // buttonBackToMenu
             // 
