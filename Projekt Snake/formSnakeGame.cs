@@ -12,7 +12,7 @@ namespace Projekt_Snake
 {
     public partial class formSnakeGame : Form
     {
-        List<Panel> listPanel = new List<Panel>();
+        List<Panel> listPanel = new List<Panel>();  //tworzy listę paneli pomiędzy, którymi będzie można się przełączać
         List<Circle> snake = new List<Circle>();
         Circle feed = new Circle();
         
@@ -25,6 +25,7 @@ namespace Projekt_Snake
 
         private void formSnakeGame_Load(object sender, EventArgs e)
         {
+            //W programie będą dwa panele - menu gry i plansza gry
             listPanel.Add(panelMenu);
             listPanel.Add(panelGame);
             listPanel[0].BringToFront();
