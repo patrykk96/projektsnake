@@ -65,6 +65,21 @@ namespace Projekt_Snake
             feed.y = rand.Next(0, maxPositionY);
 
         }
+
+        //ta metoda będzie dokonywać sprawdzenia co się dzieje obecnie na ekranie i odpowiednio dostosowywać
+        private void ScreenState(object sender, EventArgs e)
+        {
+            //ponizsze instrukcje sprawdzaja czy klawisze slużące do sterowania wężem sa wciśnięte i czy możliwe jest wykonanie skrętu
+            //(nie chcemy aby wąż zaczął poruszać się nagle w przeciwnym kierunku np. idzie w lewo a po na ciśnieciu klawisza porusza sie w prawo)
+            if (KeyInput.isKeyPressed(Keys.Up) && Settings.snakeDirection != Direction.down)
+                Settings.snakeDirection = Direction.up;
+            if (KeyInput.isKeyPressed(Keys.Left) && Settings.snakeDirection != Direction.right)
+                Settings.snakeDirection = Direction.left;
+            if (KeyInput.isKeyPressed(Keys.Down) && Settings.snakeDirection != Direction.up)
+                Settings.snakeDirection = Direction.down;
+            if (KeyInput.isKeyPressed(Keys.Right) && Settings.snakeDirection != Direction.left)
+                Settings.snakeDirection = Direction.right;
+        }
         private void buttonBackToMenu_Click(object sender, EventArgs e)
         {
             //po kliknięciu przycisku wystawia panel menu do przodu
