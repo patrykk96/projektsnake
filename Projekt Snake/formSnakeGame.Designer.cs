@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonCredits = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@
             this.labelScoreString = new System.Windows.Forms.Label();
             this.pictureBoxGameField = new System.Windows.Forms.PictureBox();
             this.buttonBackToMenu = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panelMenu.SuspendLayout();
             this.panelGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGameField)).BeginInit();
@@ -177,5 +179,6 @@
         private System.Windows.Forms.Label labelScore;
         private System.Windows.Forms.Label labelScoreString;
         private System.Windows.Forms.PictureBox pictureBoxGameField;
+        private System.Windows.Forms.Timer timer;
     }
 }

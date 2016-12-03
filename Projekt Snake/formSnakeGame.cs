@@ -38,6 +38,11 @@ namespace Projekt_Snake
             listPanel[1].BringToFront();
             listPanel[0].Visible = false;
 
+            new Settings(); //ustawia domyślne ustawienia gry na rozpoczęciu
+            timer.Interval = 500 / Settings.speed;
+            timer.Tick += ScreenState;
+            timer.Start();
+
             BeginGame();
         }
 
