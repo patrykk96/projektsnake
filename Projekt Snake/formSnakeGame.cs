@@ -37,6 +37,7 @@ namespace Projekt_Snake
             //po kliknięciu przycisku start zmienia panel z menu na pole gry i chowa panel menu
             listPanel[1].BringToFront();
             listPanel[0].Visible = false;
+            
 
             new Settings(); //ustawia domyślne ustawienia gry na rozpoczęciu
             timer.Interval = 500 / Settings.speed;
@@ -48,9 +49,10 @@ namespace Projekt_Snake
 
         private void BeginGame()
         {
+            new Settings(); //ustawia domyślne ustawienia gry na rozpoczęciu
+            labelGameOverText.Visible = false;
             Circle snakeHead = new Circle(5,5); //głowa naszego węża, wartosci do przetestowania
             snake.Add(snakeHead);
-            new Settings(); //ustawia domyślne ustawienia gry na rozpoczęciu
             FeedSpawn(); //metoda umożliwiająca pojawienie się pożywienie w losowych punktach planszy na rozpoczęciu gry
             labelScore.Text = Settings.score.ToString(); //ustawia punktację na domyślną, czyli zero
             
@@ -115,7 +117,7 @@ namespace Projekt_Snake
         {
             Graphics pole = e.Graphics;
 
-            if (Settings.gameOver == true)
+            if (Settings.gameOver != true)
             {
                 Brush snakeColor;
                 Brush feedColor;
@@ -133,6 +135,13 @@ namespace Projekt_Snake
 
                 
             }
-        }
+            else
+            {
+                string gameOverText = "Przegrałeś"; //komunikat do rozwiniecia pozniej
+                labelGameOverText.Text = gameOverText;
+                labelGameOverText.Visible = true;
+
+            }
+        } 
     }
 }

@@ -40,6 +40,7 @@
             this.pictureBoxGameField = new System.Windows.Forms.PictureBox();
             this.buttonBackToMenu = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.labelGameOverText = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGameField)).BeginInit();
@@ -98,6 +99,7 @@
             // 
             // panelGame
             // 
+            this.panelGame.Controls.Add(this.labelGameOverText);
             this.panelGame.Controls.Add(this.labelScore);
             this.panelGame.Controls.Add(this.labelScoreString);
             this.panelGame.Controls.Add(this.pictureBoxGameField);
@@ -147,6 +149,16 @@
             this.buttonBackToMenu.UseVisualStyleBackColor = true;
             this.buttonBackToMenu.Click += new System.EventHandler(this.buttonBackToMenu_Click);
             // 
+            // labelGameOverText
+            // 
+            this.labelGameOverText.AutoSize = true;
+            this.labelGameOverText.Location = new System.Drawing.Point(195, 149);
+            this.labelGameOverText.Name = "labelGameOverText";
+            this.labelGameOverText.Size = new System.Drawing.Size(46, 17);
+            this.labelGameOverText.TabIndex = 4;
+            this.labelGameOverText.Text = "label1";
+            this.labelGameOverText.Visible = false;
+            // 
             // formSnakeGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -180,5 +192,6 @@
         private System.Windows.Forms.Label labelScoreString;
         private System.Windows.Forms.PictureBox pictureBoxGameField;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label labelGameOverText;
     }
 }
