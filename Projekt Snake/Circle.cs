@@ -11,7 +11,7 @@ namespace Projekt_Snake
         /// <summary>
         /// Wąż, którym będzie sterował gracz i pożywienie będą okręgami.
         /// </summary>
-        public int x; 
+        public int x;
         public int y;
 
         public Circle()

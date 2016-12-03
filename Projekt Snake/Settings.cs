@@ -32,7 +32,7 @@ namespace Projekt_Snake
             width = 16;
             height = 16;
             score = 0;
-            speed = 10;
+            speed = 50;
             gameOver = false;
             snakeDirection = Direction.right;
 

@@ -40,7 +40,7 @@ namespace Projekt_Snake
             
 
             new Settings(); //ustawia domyślne ustawienia gry na rozpoczęciu
-            timer.Interval = 500 / Settings.speed;
+            timer.Interval = 10000 / Settings.speed;
             timer.Tick += ScreenState;
             timer.Start();
 
@@ -51,7 +51,8 @@ namespace Projekt_Snake
         {
             new Settings(); //ustawia domyślne ustawienia gry na rozpoczęciu
             labelGameOverText.Visible = false;
-            Circle snakeHead = new Circle(5,5); //głowa naszego węża, wartosci do przetestowania
+            snake.Clear();
+            Circle snakeHead = new Circle(10,5); //głowa naszego węża, wartosci do przetestowania
             snake.Add(snakeHead);
             FeedSpawn(); //metoda umożliwiająca pojawienie się pożywienie w losowych punktach planszy na rozpoczęciu gry
             labelScore.Text = Settings.score.ToString(); //ustawia punktację na domyślną, czyli zero
@@ -64,8 +65,8 @@ namespace Projekt_Snake
         {
             //metoda określa pole w którym może pojawić sie jedzenie i generuje losowe w którym ono sie pojawi
             //jeśli metoda zostanie wywołana
-            int maxPositionX = pictureBoxGameField.Size.Width;
-            int maxPositionY = pictureBoxGameField.Size.Height;
+            int maxPositionX = pictureBoxGameField.Size.Width/Settings.width;
+            int maxPositionY = pictureBoxGameField.Size.Height/Settings.height;
             feed = new Circle();
             Random rand = new Random();
             feed.x = rand.Next(0, maxPositionX);
@@ -76,16 +77,27 @@ namespace Projekt_Snake
         //ta metoda będzie dokonywać sprawdzenia co się dzieje obecnie na ekranie i odpowiednio dostosowywać
         private void ScreenState(object sender, EventArgs e)
         {
-            //ponizsze instrukcje sprawdzaja czy klawisze slużące do sterowania wężem sa wciśnięte i czy możliwe jest wykonanie skrętu
-            //(nie chcemy aby wąż zaczął poruszać się nagle w przeciwnym kierunku np. idzie w lewo a po na ciśnieciu klawisza porusza sie w prawo)
-            if (KeyInput.isKeyPressed(Keys.Up) && Settings.snakeDirection != Direction.down)
-                Settings.snakeDirection = Direction.up;
-            if (KeyInput.isKeyPressed(Keys.Left) && Settings.snakeDirection != Direction.right)
-                Settings.snakeDirection = Direction.left;
-            if (KeyInput.isKeyPressed(Keys.Down) && Settings.snakeDirection != Direction.up)
-                Settings.snakeDirection = Direction.down;
-            if (KeyInput.isKeyPressed(Keys.Right) && Settings.snakeDirection != Direction.left)
-                Settings.snakeDirection = Direction.right;
+
+            if (Settings.gameOver == true)
+            {
+                if (KeyInput.isKeyPressed(Keys.Space)) BeginGame();
+            }
+            else
+            {
+                //ponizsze instrukcje sprawdzaja czy klawisze slużące do sterowania wężem sa wciśnięte i czy możliwe jest wykonanie skrętu
+                //(nie chcemy aby wąż zaczął poruszać się nagle w przeciwnym kierunku np. idzie w lewo a po na ciśnieciu klawisza porusza sie w prawo)
+                if (KeyInput.isKeyPressed(Keys.Up) && Settings.snakeDirection != Direction.down)
+                    Settings.snakeDirection = Direction.up;
+                else if (KeyInput.isKeyPressed(Keys.Left) && Settings.snakeDirection != Direction.right)
+                    Settings.snakeDirection = Direction.left;
+                else if (KeyInput.isKeyPressed(Keys.Down) && Settings.snakeDirection != Direction.up)
+                    Settings.snakeDirection = Direction.down;
+                else if (KeyInput.isKeyPressed(Keys.Right) && Settings.snakeDirection != Direction.left)
+                    Settings.snakeDirection = Direction.right;
+
+                Movement();
+            }
+            pictureBoxGameField.Invalidate();
         }
         private void buttonBackToMenu_Click(object sender, EventArgs e)
         {
@@ -128,8 +140,8 @@ namespace Projekt_Snake
                     else snakeColor = Brushes.White;
 
                     feedColor = Brushes.Green;
-                    pole.FillEllipse(snakeColor, new Rectangle(snake[i].x, snake[i].y, Settings.width,Settings.height));
-                    pole.FillEllipse(feedColor, new Rectangle(feed.x, feed.y, Settings.width, Settings.height));
+                    pole.FillEllipse(snakeColor, new Rectangle(snake[i].x * Settings.width, snake[i].y * Settings.height, Settings.width,Settings.height));
+                    pole.FillEllipse(feedColor, new Rectangle(feed.x * Settings.width, feed.y * Settings.height, Settings.width, Settings.height));
 
                 }
 
@@ -142,6 +154,41 @@ namespace Projekt_Snake
                 labelGameOverText.Visible = true;
 
             }
-        } 
+        }
+
+        private void Movement()
+        {
+
+            for (int i = snake.Count - 1; i >= 0; i--)
+            {
+                if (i == 0)
+                {
+                    switch (Settings.snakeDirection)
+                    {
+                        case Direction.right:
+                            snake[i].x++;
+                            break;
+                        case Direction.down:
+                            snake[i].y++;
+                            break;
+                        case Direction.up:
+                            snake[i].y--;
+                            break;
+                        case Direction.left:
+                            snake[i].x--;
+                            break;
+
+                    }
+                }
+                else
+                {
+                    snake[i].x = snake[i - 1].x;
+                    snake[i].y = snake[i - 1].y;
+                }
+                
+            }
+
+
+        }
     }
 }
