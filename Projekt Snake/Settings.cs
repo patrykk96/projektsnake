@@ -24,7 +24,7 @@ namespace Projekt_Snake
         public static int speed;
         public static bool gameOver;
         public static Direction snakeDirection;
-        
+
 
         public Settings()
         {

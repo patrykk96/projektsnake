@@ -19,6 +19,7 @@ namespace Projekt_Snake
         public formSnakeGame()
         {
             InitializeComponent();
+
         }
 
         
@@ -78,14 +79,9 @@ namespace Projekt_Snake
         private void ScreenState(object sender, EventArgs e)
         {
 
-            if (Settings.gameOver == true)
+            if (Settings.gameOver == false)
             {
-                if (KeyInput.isKeyPressed(Keys.Space)) BeginGame();
-            }
-            else
-            {
-                //ponizsze instrukcje sprawdzaja czy klawisze slużące do sterowania wężem sa wciśnięte i czy możliwe jest wykonanie skrętu
-                //(nie chcemy aby wąż zaczął poruszać się nagle w przeciwnym kierunku np. idzie w lewo a po na ciśnieciu klawisza porusza sie w prawo)
+
                 if (KeyInput.isKeyPressed(Keys.Up) && Settings.snakeDirection != Direction.down)
                     Settings.snakeDirection = Direction.up;
                 else if (KeyInput.isKeyPressed(Keys.Left) && Settings.snakeDirection != Direction.right)
@@ -96,6 +92,14 @@ namespace Projekt_Snake
                     Settings.snakeDirection = Direction.right;
 
                 Movement();
+                
+            }
+            else
+            {
+               
+
+
+                if (KeyInput.isKeyPressed(Keys.Space)) BeginGame();
             }
             pictureBoxGameField.Invalidate();
         }
@@ -190,5 +194,19 @@ namespace Projekt_Snake
 
 
         }
+
+        private void formSnakeGame_KeyUp(object sender, KeyEventArgs e)
+        {
+            KeyInput.StateOfKey(e.KeyCode, false);
+        }
+
+
+
+        private void formSnakeGame_KeyDown(object sender, KeyEventArgs e)
+        {
+            KeyInput.StateOfKey(e.KeyCode, true);
+        }
+
+       
     }
 }

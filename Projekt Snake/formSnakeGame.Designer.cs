@@ -35,12 +35,12 @@
             this.buttonHowToPlay = new System.Windows.Forms.Button();
             this.buttonStart = new System.Windows.Forms.Button();
             this.panelGame = new System.Windows.Forms.Panel();
+            this.labelGameOverText = new System.Windows.Forms.Label();
             this.labelScore = new System.Windows.Forms.Label();
             this.labelScoreString = new System.Windows.Forms.Label();
             this.pictureBoxGameField = new System.Windows.Forms.PictureBox();
             this.buttonBackToMenu = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.labelGameOverText = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGameField)).BeginInit();
@@ -109,6 +109,16 @@
             this.panelGame.Size = new System.Drawing.Size(870, 700);
             this.panelGame.TabIndex = 4;
             // 
+            // labelGameOverText
+            // 
+            this.labelGameOverText.AutoSize = true;
+            this.labelGameOverText.Location = new System.Drawing.Point(195, 149);
+            this.labelGameOverText.Name = "labelGameOverText";
+            this.labelGameOverText.Size = new System.Drawing.Size(46, 17);
+            this.labelGameOverText.TabIndex = 4;
+            this.labelGameOverText.Text = "label1";
+            this.labelGameOverText.Visible = false;
+            // 
             // labelScore
             // 
             this.labelScore.AutoSize = true;
@@ -149,16 +159,6 @@
             this.buttonBackToMenu.UseVisualStyleBackColor = true;
             this.buttonBackToMenu.Click += new System.EventHandler(this.buttonBackToMenu_Click);
             // 
-            // labelGameOverText
-            // 
-            this.labelGameOverText.AutoSize = true;
-            this.labelGameOverText.Location = new System.Drawing.Point(195, 149);
-            this.labelGameOverText.Name = "labelGameOverText";
-            this.labelGameOverText.Size = new System.Drawing.Size(46, 17);
-            this.labelGameOverText.TabIndex = 4;
-            this.labelGameOverText.Text = "label1";
-            this.labelGameOverText.Visible = false;
-            // 
             // formSnakeGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -171,6 +171,8 @@
             this.Name = "formSnakeGame";
             this.Text = "Projekt: Snake";
             this.Load += new System.EventHandler(this.formSnakeGame_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formSnakeGame_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.formSnakeGame_KeyUp);
             this.panelMenu.ResumeLayout(false);
             this.panelGame.ResumeLayout(false);
             this.panelGame.PerformLayout();
