@@ -41,6 +41,7 @@
             this.pictureBoxGameField = new System.Windows.Forms.PictureBox();
             this.buttonBackToMenu = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.timerForChangingDirection = new System.Windows.Forms.Timer(this.components);
             this.panelMenu.SuspendLayout();
             this.panelGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGameField)).BeginInit();
@@ -195,5 +196,6 @@
         private System.Windows.Forms.PictureBox pictureBoxGameField;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label labelGameOverText;
+        private System.Windows.Forms.Timer timerForChangingDirection;
     }
 }

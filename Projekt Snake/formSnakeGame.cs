@@ -12,13 +12,19 @@ namespace Projekt_Snake
 {
     public partial class formSnakeGame : Form
     {
-        List<Panel> listPanel = new List<Panel>();  //tworzy listę paneli pomiędzy, którymi będzie można się przełączać
-        List<Circle> snake = new List<Circle>();
+        private List<Panel> listPanel = new List<Panel>();  //tworzy listę paneli pomiędzy, którymi będzie można się przełączać
+        private List<Circle> snake = new List<Circle>();
         Circle feed = new Circle();
         
         public formSnakeGame()
         {
             InitializeComponent();
+            new Settings();
+            timerForChangingDirection.Interval = 1000/Settings.speed;
+            timerForChangingDirection.Tick += ScreenState;
+            timerForChangingDirection.Start();
+
+
 
         }
 
@@ -31,6 +37,8 @@ namespace Projekt_Snake
             listPanel.Add(panelGame);
             listPanel[0].BringToFront();
             listPanel[1].SendToBack();
+            
+
         }
 
         private void buttonStart_Click(object sender, EventArgs e)
@@ -41,19 +49,16 @@ namespace Projekt_Snake
             
 
             new Settings(); //ustawia domyślne ustawienia gry na rozpoczęciu
-            timer.Interval = 10000 / Settings.speed;
-            timer.Tick += ScreenState;
-            timer.Start();
-
             BeginGame();
         }
 
         private void BeginGame()
         {
             new Settings(); //ustawia domyślne ustawienia gry na rozpoczęciu
+             
             labelGameOverText.Visible = false;
             snake.Clear();
-            Circle snakeHead = new Circle(10,5); //głowa naszego węża, wartosci do przetestowania
+            Circle snakeHead = new Circle(5,5); //głowa naszego węża, wartosci do przetestowania
             snake.Add(snakeHead);
             FeedSpawn(); //metoda umożliwiająca pojawienie się pożywienie w losowych punktach planszy na rozpoczęciu gry
             labelScore.Text = Settings.score.ToString(); //ustawia punktację na domyślną, czyli zero
@@ -78,11 +83,13 @@ namespace Projekt_Snake
         //ta metoda będzie dokonywać sprawdzenia co się dzieje obecnie na ekranie i odpowiednio dostosowywać
         private void ScreenState(object sender, EventArgs e)
         {
-
-            if (Settings.gameOver == false)
+            if (Settings.gameOver == true)
             {
-
-                if (KeyInput.isKeyPressed(Keys.Up) && Settings.snakeDirection != Direction.down)
+                if (KeyInput.isKeyPressed(Keys.Enter)) BeginGame();
+            }
+            else
+            {
+                if (KeyInput.isKeyPressed(Keys.Up))
                     Settings.snakeDirection = Direction.up;
                 else if (KeyInput.isKeyPressed(Keys.Left) && Settings.snakeDirection != Direction.right)
                     Settings.snakeDirection = Direction.left;
@@ -92,15 +99,9 @@ namespace Projekt_Snake
                     Settings.snakeDirection = Direction.right;
 
                 Movement();
-                
-            }
-            else
-            {
-               
 
-
-                if (KeyInput.isKeyPressed(Keys.Space)) BeginGame();
             }
+
             pictureBoxGameField.Invalidate();
         }
         private void buttonBackToMenu_Click(object sender, EventArgs e)
@@ -135,11 +136,12 @@ namespace Projekt_Snake
 
             if (Settings.gameOver != true)
             {
-                Brush snakeColor;
+                
                 Brush feedColor;
 
                 for (int i = 0; i < snake.Count; i++)
                 {
+                    Brush snakeColor;
                     if (i == 0) snakeColor = Brushes.Aqua; // inny kolor głowy posłuży do sprawdzenia czy wszystko działa, do zmienienia pozniej
                     else snakeColor = Brushes.White;
 
@@ -181,9 +183,12 @@ namespace Projekt_Snake
                         case Direction.left:
                             snake[i].x--;
                             break;
-
                     }
                 }
+
+
+
+
                 else
                 {
                     snake[i].x = snake[i - 1].x;
