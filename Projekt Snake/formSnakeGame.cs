@@ -185,6 +185,22 @@ namespace Projekt_Snake
                             snake[i].x--;
                             break;
                     }
+
+                    int MaxPositionX = pictureBoxGameField.Size.Width / Settings.width;
+                    int MaxPositionY = pictureBoxGameField.Size.Height / Settings.height;
+
+                    if (snake[i].x < 0 || snake[i].y < 0 || snake[i].x >= MaxPositionX || snake[i].y >= MaxPositionY)
+                    {
+                        //Death();
+                    }
+
+                    for (int j = 1; j < snake.Count; j++)
+                    {
+                        if (snake[i].x == snake[j].x && snake[i].y == snake[j].y) 
+                            //Death()
+                            ; 
+                    }
+
                 }
 
 
