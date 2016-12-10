@@ -41,7 +41,6 @@
             this.pictureBoxGameField = new System.Windows.Forms.PictureBox();
             this.buttonBackToMenu = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.timerForChangingDirection = new System.Windows.Forms.Timer(this.components);
             this.panelMenu.SuspendLayout();
             this.panelGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGameField)).BeginInit();
@@ -113,11 +112,12 @@
             // labelGameOverText
             // 
             this.labelGameOverText.AutoSize = true;
-            this.labelGameOverText.Location = new System.Drawing.Point(195, 149);
+            this.labelGameOverText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelGameOverText.Location = new System.Drawing.Point(53, 177);
             this.labelGameOverText.Name = "labelGameOverText";
-            this.labelGameOverText.Size = new System.Drawing.Size(46, 17);
+            this.labelGameOverText.Size = new System.Drawing.Size(95, 36);
             this.labelGameOverText.TabIndex = 4;
-            this.labelGameOverText.Text = "label1";
+            this.labelGameOverText.Text = "label2";
             this.labelGameOverText.Visible = false;
             // 
             // labelScore
@@ -145,7 +145,7 @@
             this.pictureBoxGameField.BackColor = System.Drawing.SystemColors.ControlText;
             this.pictureBoxGameField.Location = new System.Drawing.Point(18, 15);
             this.pictureBoxGameField.Name = "pictureBoxGameField";
-            this.pictureBoxGameField.Size = new System.Drawing.Size(631, 661);
+            this.pictureBoxGameField.Size = new System.Drawing.Size(620, 650);
             this.pictureBoxGameField.TabIndex = 1;
             this.pictureBoxGameField.TabStop = false;
             this.pictureBoxGameField.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxGameField_Paint);
@@ -196,6 +196,5 @@
         private System.Windows.Forms.PictureBox pictureBoxGameField;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label labelGameOverText;
-        private System.Windows.Forms.Timer timerForChangingDirection;
     }
 }

@@ -21,9 +21,9 @@ namespace Projekt_Snake
         {
             InitializeComponent();
             new Settings();
-            timerForChangingDirection.Interval = 1000/Settings.speed;
-            timerForChangingDirection.Tick += ScreenState;
-            timerForChangingDirection.Start();
+            timer.Interval = 1000/Settings.speed;
+            timer.Tick += ScreenState;
+            timer.Start();
 
 
 
@@ -84,27 +84,10 @@ namespace Projekt_Snake
         //ta metoda będzie dokonywać sprawdzenia co się dzieje obecnie na ekranie i odpowiednio dostosowywać
         private void ScreenState(object sender, EventArgs e)
         {
-            if (Settings.gameOver == true)
-            {
-                if (KeyInput.isKeyPressed(Keys.Enter)) BeginGame();
-            }
-            else
-            {
-                /*if (KeyInput.isKeyPressed(Keys.Up))
-                    Settings.snakeDirection = Direction.up;
-                else if (KeyInput.isKeyPressed(Keys.Left) && Settings.snakeDirection != Direction.right)
-                    Settings.snakeDirection = Direction.left;
-                else if (KeyInput.isKeyPressed(Keys.Down) && Settings.snakeDirection != Direction.up)
-                    Settings.snakeDirection = Direction.down;
-                else if (KeyInput.isKeyPressed(Keys.Right) && Settings.snakeDirection != Direction.left)
-                    Settings.snakeDirection = Direction.right;*/
-
-                Movement();
-
-            }
-
+            Movement();
             pictureBoxGameField.Invalidate();
         }
+
         private void buttonBackToMenu_Click(object sender, EventArgs e)
         {
             //po kliknięciu przycisku wystawia panel menu do przodu
@@ -156,7 +139,7 @@ namespace Projekt_Snake
             }
             else
             {
-                string gameOverText = "Przegrałeś"; //komunikat do rozwiniecia pozniej
+                string gameOverText = "Przegrałeś! Zdobyłeś " + Settings.score + " punktów. \nWciśnij ENTER aby zagrać od nowa."; //komunikat do rozwiniecia pozniej
                 labelGameOverText.Text = gameOverText;
                 labelGameOverText.Visible = true;
 
@@ -277,7 +260,14 @@ namespace Projekt_Snake
                 Settings.snakeDirection = Direction.right;
                 return true;
             }
+            if (Settings.gameOver == true)
+            {
+                if (keyData == Keys.Enter) BeginGame();
+            }
+
+
             Movement();
+
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
