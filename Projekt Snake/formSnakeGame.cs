@@ -191,14 +191,13 @@ namespace Projekt_Snake
 
                     if (snake[i].x < 0 || snake[i].y < 0 || snake[i].x >= MaxPositionX || snake[i].y >= MaxPositionY)
                     {
-                        //Death();
+                        Death();
                     }
 
                     for (int j = 1; j < snake.Count; j++)
                     {
                         if (snake[i].x == snake[j].x && snake[i].y == snake[j].y) 
-                            //Death()
-                            ; 
+                            Death(); 
                     }
 
                     if (snake[0].x == feed.x && snake[0].y == feed.y)
@@ -231,6 +230,11 @@ namespace Projekt_Snake
             snake.Add(feed);
 
             FeedSpawn();
+        }
+
+        private void Death()
+        {
+            Settings.gameOver = true;
         }
 
         private void formSnakeGame_KeyUp(object sender, KeyEventArgs e)
