@@ -29,11 +29,11 @@ namespace Projekt_Snake
 
         public Settings()
         {
-            //ustawienia domyślne wartości do zmienienia kiedy będzie można sprawdzić je na polu gry
+            //domyślne ustawienia
             width = 16;
             height = 16;
             score = 0;
-            speed = 16;
+            speed = 20;
             points = 200;
             gameOver = false;
             snakeDirection = Direction.right;

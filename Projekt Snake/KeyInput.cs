@@ -23,7 +23,7 @@ namespace Projekt_Snake
             else return (bool) keyboard[key];
         }
 
-
+        //ustala czy przycisk jest wciśnięty czy nie
         public static void StateOfKey(Keys key, bool state)
         {
             keyboard[key] = state;

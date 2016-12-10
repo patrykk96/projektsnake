@@ -8,9 +8,9 @@ namespace Projekt_Snake
 {
     class Circle
     {
-        /// <summary>
-        /// Wąż, którym będzie sterował gracz i pożywienie będą okręgami.
-        /// </summary>
+        
+       //Wąż, którym będzie sterował gracz i pożywienie będą okręgami.
+        
         public int x;
         public int y;
 
