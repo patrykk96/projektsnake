@@ -201,6 +201,11 @@ namespace Projekt_Snake
                             ; 
                     }
 
+                    if (snake[0].x == feed.x && snake[0].y == feed.y)
+                    {
+                        EatFeed();
+                    }
+
                 }
 
 
@@ -215,6 +220,17 @@ namespace Projekt_Snake
             }
 
 
+        }
+
+        private void EatFeed()
+        {
+            Circle feed = new Circle();
+            feed.x = snake[snake.Count - 1].x;
+            feed.y = snake[snake.Count - 1].y;
+
+            snake.Add(feed);
+
+            FeedSpawn();
         }
 
         private void formSnakeGame_KeyUp(object sender, KeyEventArgs e)
@@ -257,6 +273,8 @@ namespace Projekt_Snake
             Movement();
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
+
        
     }
 }
