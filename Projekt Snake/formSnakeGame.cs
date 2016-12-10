@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Projekt_Snake
 {
     public partial class formSnakeGame : Form
@@ -89,14 +90,14 @@ namespace Projekt_Snake
             }
             else
             {
-                if (KeyInput.isKeyPressed(Keys.Up))
+                /*if (KeyInput.isKeyPressed(Keys.Up))
                     Settings.snakeDirection = Direction.up;
                 else if (KeyInput.isKeyPressed(Keys.Left) && Settings.snakeDirection != Direction.right)
                     Settings.snakeDirection = Direction.left;
                 else if (KeyInput.isKeyPressed(Keys.Down) && Settings.snakeDirection != Direction.up)
                     Settings.snakeDirection = Direction.down;
                 else if (KeyInput.isKeyPressed(Keys.Right) && Settings.snakeDirection != Direction.left)
-                    Settings.snakeDirection = Direction.right;
+                    Settings.snakeDirection = Direction.right;*/
 
                 Movement();
 
@@ -212,6 +213,34 @@ namespace Projekt_Snake
             KeyInput.StateOfKey(e.KeyCode, true);
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Up && Settings.snakeDirection != Direction.down)
+            {
+                Settings.snakeDirection = Direction.up;
+                return true;
+            }
+
+            if (keyData == Keys.Down && Settings.snakeDirection != Direction.up)
+            {
+                Settings.snakeDirection = Direction.down;
+                return true;
+            }
+
+            if (keyData == Keys.Left && Settings.snakeDirection != Direction.right)
+            {
+                Settings.snakeDirection = Direction.left;
+                return true;
+            }
+
+            if (keyData == Keys.Right && Settings.snakeDirection != Direction.left)
+            {
+                Settings.snakeDirection = Direction.right;
+                return true;
+            }
+            Movement();
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
        
     }
 }
