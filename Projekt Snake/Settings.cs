@@ -22,6 +22,7 @@ namespace Projekt_Snake
         public static int height;
         public static int score;
         public static int speed;
+        public static int points;
         public static bool gameOver;
         public static Direction snakeDirection;
 
@@ -33,6 +34,7 @@ namespace Projekt_Snake
             height = 16;
             score = 0;
             speed = 16;
+            points = 200;
             gameOver = false;
             snakeDirection = Direction.right;
 

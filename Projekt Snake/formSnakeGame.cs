@@ -229,6 +229,9 @@ namespace Projekt_Snake
 
             snake.Add(feed);
 
+            Settings.score += Settings.points;
+            labelScore.Text = Settings.score.ToString();
+
             FeedSpawn();
         }
 
