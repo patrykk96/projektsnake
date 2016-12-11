@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formSnakeGame));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonCredits = new System.Windows.Forms.Button();
@@ -48,18 +49,19 @@
             // 
             // panelMenu
             // 
+            this.panelMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelMenu.BackgroundImage")));
             this.panelMenu.Controls.Add(this.buttonExit);
             this.panelMenu.Controls.Add(this.buttonCredits);
             this.panelMenu.Controls.Add(this.buttonHowToPlay);
             this.panelMenu.Controls.Add(this.buttonStart);
-            this.panelMenu.Location = new System.Drawing.Point(68, 12);
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(870, 700);
+            this.panelMenu.Size = new System.Drawing.Size(1007, 721);
             this.panelMenu.TabIndex = 0;
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(346, 441);
+            this.buttonExit.Location = new System.Drawing.Point(420, 408);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(163, 52);
             this.buttonExit.TabIndex = 3;
@@ -69,7 +71,7 @@
             // 
             // buttonCredits
             // 
-            this.buttonCredits.Location = new System.Drawing.Point(346, 371);
+            this.buttonCredits.Location = new System.Drawing.Point(420, 350);
             this.buttonCredits.Name = "buttonCredits";
             this.buttonCredits.Size = new System.Drawing.Size(163, 52);
             this.buttonCredits.TabIndex = 2;
@@ -79,7 +81,7 @@
             // 
             // buttonHowToPlay
             // 
-            this.buttonHowToPlay.Location = new System.Drawing.Point(346, 301);
+            this.buttonHowToPlay.Location = new System.Drawing.Point(420, 292);
             this.buttonHowToPlay.Name = "buttonHowToPlay";
             this.buttonHowToPlay.Size = new System.Drawing.Size(163, 52);
             this.buttonHowToPlay.TabIndex = 1;
@@ -89,7 +91,7 @@
             // 
             // buttonStart
             // 
-            this.buttonStart.Location = new System.Drawing.Point(346, 231);
+            this.buttonStart.Location = new System.Drawing.Point(420, 234);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(163, 52);
             this.buttonStart.TabIndex = 0;
@@ -100,13 +102,14 @@
             // panelGame
             // 
             this.panelGame.Controls.Add(this.labelGameOverText);
+            this.panelGame.Controls.Add(this.panelMenu);
             this.panelGame.Controls.Add(this.labelScore);
             this.panelGame.Controls.Add(this.labelScoreString);
             this.panelGame.Controls.Add(this.pictureBoxGameField);
             this.panelGame.Controls.Add(this.buttonBackToMenu);
-            this.panelGame.Location = new System.Drawing.Point(68, 12);
+            this.panelGame.Location = new System.Drawing.Point(-1, -1);
             this.panelGame.Name = "panelGame";
-            this.panelGame.Size = new System.Drawing.Size(870, 700);
+            this.panelGame.Size = new System.Drawing.Size(1007, 724);
             this.panelGame.TabIndex = 4;
             // 
             // labelGameOverText
@@ -166,7 +169,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 721);
             this.Controls.Add(this.panelGame);
-            this.Controls.Add(this.panelMenu);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "formSnakeGame";
