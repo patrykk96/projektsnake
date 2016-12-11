@@ -29,7 +29,7 @@ namespace Projekt_Snake
 
         private void formSnakeGame_Load(object sender, EventArgs e)
         {
-            //W programie będą dwa panele - menu gry i plansza gry
+            //W programie będą dwa panele - menu gry i plansza gry, na początek menu jest z przodu
             listPanel.Add(panelMenu);
             listPanel.Add(panelGame);
             listPanel[0].BringToFront();
@@ -40,7 +40,7 @@ namespace Projekt_Snake
         {
             //po kliknięciu przycisku start zmienia panel z menu na pole gry i chowa panel menu
             listPanel[1].BringToFront();
-            listPanel[0].Visible = false;
+            listPanel[0].Visible = false; //panel menu w czasie gry jest niewidoczny
             new Settings(); //ustawia domyślne ustawienia gry na rozpoczęciu
             BeginGame();
         }
@@ -51,8 +51,8 @@ namespace Projekt_Snake
 
             new Settings(); //ustawia domyślne ustawienia gry na rozpoczęciu
              
-            labelGameOverText.Visible = false;
-            snake.Clear();
+            labelGameOverText.Visible = false; //zapewnia, że komunikat o końcu gry nie będzie widoczny
+            snake.Clear(); //zapewnia, że nie pozostaną żadne "resztki" węża z poprzedniej rozgrywki
             Circle snakeHead = new Circle(5,5); //głowa naszego węża
             snake.Add(snakeHead);
             FeedSpawn(); //metoda umożliwiająca pojawienie się pożywienie w losowych punktach planszy na rozpoczęciu gry
@@ -127,6 +127,7 @@ namespace Projekt_Snake
             }
             else
             {
+                //jeśli nastąpi koniec gry pojawi się ten komunikat
                 string gameOverText = "Przegrałeś! Zdobyłeś " + Settings.score + " punktów. \nWciśnij ENTER aby zagrać od nowa."; //komunikat wyświetlany po przegranej
                 labelGameOverText.Text = gameOverText;
                 labelGameOverText.Visible = true;
@@ -156,7 +157,7 @@ namespace Projekt_Snake
                             snake[i].x--;
                             break;
                     }
-
+                    //zmienne określające maksymalne współrzędne w polu gry
                     int MaxPositionX = pictureBoxGameField.Size.Width / Settings.width;
                     int MaxPositionY = pictureBoxGameField.Size.Height / Settings.height;
 
