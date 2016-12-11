@@ -1,0 +1,9 @@
+c:\users\patryk\documents\visual studio 2015\Projects\Projekt Snake\Projekt Snake\bin\Debug\Projekt Snake.exe.config
+c:\users\patryk\documents\visual studio 2015\Projects\Projekt Snake\Projekt Snake\bin\Debug\Projekt Snake.exe
+c:\users\patryk\documents\visual studio 2015\Projects\Projekt Snake\Projekt Snake\bin\Debug\Projekt Snake.pdb
+c:\users\patryk\documents\visual studio 2015\Projects\Projekt Snake\Projekt Snake\obj\Debug\Projekt_Snake.Properties.Resources.resources
+c:\users\patryk\documents\visual studio 2015\Projects\Projekt Snake\Projekt Snake\obj\Debug\Projekt Snake.csproj.GenerateResource.Cache
+c:\users\patryk\documents\visual studio 2015\Projects\Projekt Snake\Projekt Snake\obj\Debug\Projekt Snake.exe
+c:\users\patryk\documents\visual studio 2015\Projects\Projekt Snake\Projekt Snake\obj\Debug\Projekt Snake.pdb
+c:\users\patryk\documents\visual studio 2015\Projects\Projekt Snake\Projekt Snake\obj\Debug\Projekt_Snake.formSnakeGame.resources
+C:\Users\Patryk\documents\visual studio 2015\Projects\Projekt Snake\Projekt Snake\obj\Debug\Projekt Snake.csprojResolveAssemblyReference.cache
